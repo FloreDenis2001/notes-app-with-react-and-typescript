@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,500;1,900&display=swap');
+
+// COLORS 
+
+$color-primary: #369970;
+$color-secondary: #67d1bd;
+$color-white: #ffffff;
+$color-black: #3F4E4F;
+$color-bg:rgb(23, 23, 24);
+$color-bg-card:#ebe8e8;
+$color-green:#1fd455;
+$color-red:#df4141;
+
+$linear-gradient: linear-gradient(90deg, $color-primary 0%, $color-secondary 54%);
+$linear-gradient-2: linear-gradient(150deg, $color-secondary 0%, $color-primary 54%);
+
+// FONTS 
+$font-family-primary: "Roboto", sans-serif;
+$font-family-secondary: "Red Hat Display", sans-serif;

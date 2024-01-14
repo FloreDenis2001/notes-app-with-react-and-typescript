@@ -1,0 +1,149 @@
+.arrow__button {
+  &.arrow__left {
+    position: absolute;
+    top: 10rem;
+    left: 0rem;
+    transform: translateX(-50%) rotate(90deg);
+    color: $color-white;
+    background-color: $color-primary;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-primary;
+    }
+
+    .arrow__left-key {
+      transform: rotate(-90deg);
+    }
+  }
+
+  &.arrow__right {
+    position: absolute;
+    top: 10rem;
+    right: 0rem;
+    transform: translateX(50%) rotate(90deg);
+    color: $color-white;
+    background-color: $color-primary;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-primary;
+    }
+
+    .arrow__right-key {
+      transform: rotate(-90deg);
+    }
+  }
+}
+
+button {
+  border: none;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  font-family: $font-family-secondary;
+}
+
+.slick-next,
+.slick-prev {
+  &::before {
+    color: $color-primary !important;
+    font-size: 2.5rem !important;
+  }
+}
+
+.slick-dots .slick-active button {
+  &::before {
+    color: $color-primary !important;
+    font-size: 1.6rem;
+  }
+}
+
+.slick-dots li button {
+  &::before {
+    color: $color-primary !important;
+    font-size: 1.6rem !important;
+  }
+}
+
+.slick-slide {
+  display: flex !important;
+  align-content: center !important;
+  justify-content: center !important;
+}
+
+.button {
+  &__first {
+    background-image: $linear-gradient-2;
+    font-size: 2rem;
+    color: $color-white;
+    font-weight: 500;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    margin-right: 2rem;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.02);
+      color: $color-white;
+    }
+  }
+
+  &__firstSmall{
+    max-width: 10rem;
+    font-size: 1.5rem;
+    padding: 1rem;
+
+  }
+  &__second {
+    width: 100%;
+    height: 5rem;
+    background-color: transparent;
+    color: $color-primary;
+    border: 1px solid $color-primary;
+    font-size: 1.7rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding-inline: 2rem;
+    transition: all 0.3s;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 5rem;
+
+    &:hover {
+      background: $linear-gradient-2;
+      color: $color-white;
+    }
+  }
+
+  &__textFirst {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $color-black;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  &__signUp{
+    background:$color-white;
+    font-size: 2rem;
+    color: $color-primary;
+    font-weight: 500;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    margin-right: 2rem;
+    cursor: pointer;
+    width: 40%;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}

@@ -1,0 +1,56 @@
+.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  
+    &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 60%;
+      padding: 2rem;
+  
+      &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 60%;
+  
+        &__box {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 0.5rem;
+  
+          label {
+            font-size: 2rem;
+            color: $color-primary;
+            margin-bottom: 0.5rem;
+          }
+  
+          input {
+            height: 4rem;
+            padding: 0.5rem;
+            border: 1px solid $color-secondary;
+            border-radius: 4px;
+            font-size: 1.6rem;
+            color: $color-secondary;
+  
+            &:focus {
+              outline: none;
+              border-color: $color-primary;
+            }
+          }
+        }
+  
+        &__boxButton {
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+  
+          
+        }
+      }
+    }
+  }
+  

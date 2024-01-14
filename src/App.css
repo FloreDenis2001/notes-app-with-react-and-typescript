@@ -1,38 +1,438 @@
-.App {
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,500;1,900&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 62.5%;
+  background-color: rgb(23, 23, 24);
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(150deg, #67d1bd 0%, #369970 54%);
+  border-radius: 0.6rem;
+  height: 1rem;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: rgb(23, 23, 24);
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+  height: auto;
+  margin-left: 15%;
+}
+
+img {
+  max-height: 70%;
+}
+
+p {
+  margin: 0;
+}
+
+.arrow__button.arrow__left {
+  position: absolute;
+  top: 10rem;
+  left: 0rem;
+  transform: translateX(-50%) rotate(90deg);
+  color: #ffffff;
+  background-color: #369970;
+}
+.arrow__button.arrow__left:hover {
+  color: #ffffff;
+  background-color: #369970;
+}
+.arrow__button.arrow__left .arrow__left-key {
+  transform: rotate(-90deg);
+}
+.arrow__button.arrow__right {
+  position: absolute;
+  top: 10rem;
+  right: 0rem;
+  transform: translateX(50%) rotate(90deg);
+  color: #ffffff;
+  background-color: #369970;
+}
+.arrow__button.arrow__right:hover {
+  color: #ffffff;
+  background-color: #369970;
+}
+.arrow__button.arrow__right .arrow__right-key {
+  transform: rotate(-90deg);
+}
+
+button {
+  border: none;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  font-family: "Red Hat Display", sans-serif;
+}
+
+.slick-next::before,
+.slick-prev::before {
+  color: #369970 !important;
+  font-size: 2.5rem !important;
+}
+
+.slick-dots .slick-active button::before {
+  color: #369970 !important;
+  font-size: 1.6rem;
+}
+
+.slick-dots li button::before {
+  color: #369970 !important;
+  font-size: 1.6rem !important;
+}
+
+.slick-slide {
+  display: flex !important;
+  align-content: center !important;
+  justify-content: center !important;
+}
+
+.button__first {
+  background-image: linear-gradient(150deg, #67d1bd 0%, #369970 54%);
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 500;
+  padding: 1rem;
+  border: none;
+  border-radius: 1rem;
+  margin-right: 2rem;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s;
+}
+.button__first:hover {
+  transform: scale(1.02);
+  color: #ffffff;
+}
+.button__firstSmall {
+  max-width: 10rem;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+.button__second {
+  width: 100%;
+  height: 5rem;
+  background-color: transparent;
+  color: #369970;
+  border: 1px solid #369970;
+  font-size: 1.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding-inline: 2rem;
+  transition: all 0.3s;
   text-align: center;
+  text-transform: uppercase;
+  border-radius: 5rem;
+}
+.button__second:hover {
+  background: linear-gradient(150deg, #67d1bd 0%, #369970 54%);
+  color: #ffffff;
+}
+.button__textFirst {
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #3F4E4F;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.button__signUp {
+  background: #ffffff;
+  font-size: 2rem;
+  color: #369970;
+  font-weight: 500;
+  padding: 1rem;
+  border: none;
+  border-radius: 1rem;
+  margin-right: 2rem;
+  cursor: pointer;
+  width: 40%;
+  transition: all 0.3s;
+}
+.button__signUp:hover {
+  transform: scale(1.02);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.search-box {
+  width: 100%;
+  height: 4.5rem;
+  max-width: 22rem;
+  padding-inline: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  position: relative;
+  font-size: 1.6rem;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.search-box__input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  outline: none;
+  color: rgb(23, 23, 24);
+  border-radius: 10rem;
+  padding-left: 2rem;
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 400;
+}
+.search-box__input:focus {
+  border: 1px solid #369970;
+}
+.search-box__button {
+  position: absolute;
+  background: linear-gradient(150deg, #67d1bd 0%, #369970 54%);
+  flex: 1;
+  border: none;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  right: 1rem;
+}
+.search-box__button:hover {
+  transform: scale(1.1);
+}
+@media only screen and (max-width: 56.25em) {
+  .search-box {
+    max-width: 10rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .search-box {
+    max-width: 5rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
+.login {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 2rem;
+}
+.login__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 60%;
+  padding-block: 2rem;
+}
+.login__container__title {
+  font-size: 2.5rem;
+  color: #369970;
+}
+.login__container__left {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 2rem;
+  background: #ffffff;
+  border-radius: 1rem;
+  border: 1px solid #369970;
+  padding: 5rem;
+}
+.login__container__left button {
+  align-self: center;
+  width: 50%;
+}
+.login__container__form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.login__container__form__input {
+  height: 4rem;
+  padding-left: 1rem;
+  font-size: 1.5rem;
+  font-family: "Red Hat Display", sans-serif;
+  border-bottom: 1px solid #67d1bd;
+}
+.login__container__form__input:focus {
+  border-radius: 1rem;
+  outline: none;
+  border: 1px solid #369970;
+}
+
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+.register__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  padding: 2rem;
+}
+.register__container__form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 60%;
+}
+.register__container__form__box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+.register__container__form__box label {
+  font-size: 2rem;
+  color: #369970;
+  margin-bottom: 0.5rem;
+}
+.register__container__form__box input {
+  height: 4rem;
+  padding: 0.5rem;
+  border: 1px solid #67d1bd;
+  border-radius: 4px;
+  font-size: 1.6rem;
+  color: #67d1bd;
+}
+.register__container__form__box input:focus {
+  outline: none;
+  border-color: #369970;
+}
+.register__container__form__boxButton {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.sidebar {
   min-height: 100vh;
+  max-height: 100vh;
+  min-width: 13%;
+  border-right: 1px solid #369970;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: rgb(23, 23, 24);
+  display: flex;
+  flex-direction: column;
+}
+.sidebar__user {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #369970;
+}
+.sidebar__user span {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+.sidebar__search {
+  padding-block: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar__items {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
+  align-self: center;
+}
+.sidebar__footer {
+  border-top: 2px solid #369970;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  padding: 1rem;
+  bottom: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.navigation__leftBar__options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+.navigation__leftBar__options__item {
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  height: 5rem;
+  width: 100%;
+  transition: all 2s ease-in-out;
+}
+.navigation__leftBar__options__item:hover {
+  background: linear-gradient(150deg, #67d1bd 0%, #369970 54%);
+  color: #ffffff;
+}
+.navigation__leftBar__options__item__icon {
+  height: 2rem;
+  margin-left: 1rem;
+  width: 2rem;
+  color: #ffffff;
+}
+.navigation__leftBar__options__item__text {
+  font-size: 1.5rem;
+  font-weight: 800;
+  white-space: nowrap;
+  color: #ffffff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.home {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
 }
+
+/*# sourceMappingURL=App.css.map */
