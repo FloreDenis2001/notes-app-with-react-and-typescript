@@ -1,4 +1,4 @@
-import UserLogin from "../dtos/UserLogin";
+import UserLogin from "./UserLogin";
 
 type LoginContextType = {
     user: UserLogin;

@@ -1,7 +1,7 @@
 import React from "react";
 import ApiServer from "../utils/ApiServer";
 import LoginRequest from "../dtos/LoginRequest";
-import UserLogin from "../dtos/UserLogin";
+import UserLogin from "../models/UserLogin";
 
 class ServiceUser extends ApiServer {
   login = async (user: LoginRequest): Promise<UserLogin> => {

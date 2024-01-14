@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import UserLogin from "../dtos/UserLogin";
+import UserLogin from "../models/UserLogin";
 import LoginContextType from "../models/LoginContextType";
 import Cookies from "js-cookie";
 

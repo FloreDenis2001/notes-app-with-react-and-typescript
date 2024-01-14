@@ -1,0 +1,59 @@
+/* Stilizare pentru dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    max-width: 15rem;
+
+    span{
+        font-size: 1.4rem;
+        color: $color-white;
+        padding: 1rem;
+
+    }
+  }
+  
+  .dropdown__header {
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .dropdown__options {
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    font-size: 1.4rem;
+    top: 100%;
+    left: 0;
+    background-color: $color-bg;
+    border: 1px solid $color-primary;
+    color: $color-secondary;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  
+  .dropdown__options div {
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .dropdown__options div:hover {
+    background:$linear-gradient-2;
+    color: $color-white;
+  }
+  .dropdown select {
+    appearance: none;
+    padding-block: 8px;
+    padding-left: 5px;
+    
+    cursor: pointer;
+    background-color: $color-bg;
+    color: $color-secondary;
+    outline: 0;
+    border: none;
+  }
+ 
+  

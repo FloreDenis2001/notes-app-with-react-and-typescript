@@ -91,6 +91,26 @@ button {
       color: $color-white;
     }
   }
+  &__delete {
+    background-image: $linear-gradient-3;
+    font-size: 2rem;
+    color: $color-white;
+    font-weight: 500;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    margin-right: 2rem;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s;
+    border-radius: 5rem;
+
+
+    &:hover {
+      transform: scale(1.02);
+      color: $color-white;
+    }
+  }
 
   &__firstSmall{
     max-width: 10rem;

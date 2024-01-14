@@ -1,0 +1,127 @@
+.notes{
+    display: flex;
+    flex-direction: row;
+    &__content{
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        max-width: 35rem;
+        height: 100%;
+        min-height: 100vh;
+        border-right: 1px solid $color-primary;
+        &__header{
+            padding-top: 1rem;
+            display: flex;
+            flex-direction: row;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            align-items: center;
+            gap: 1rem;
+            color: $color-white;
+        }
+
+        &__addBox{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            
+        }
+
+
+        &__filters{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding-inline: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid $color-primary;
+
+            p{
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: $color-white;
+            }
+
+        }
+    }
+
+    &__edit{
+        position: relative;
+        min-width: 75%;
+    }
+}
+
+
+.note{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-bottom: 1px solid $color-primary;
+    cursor: pointer;
+
+    &__title{
+        font-size:2rem;
+        font-weight: 700;
+        color: $color-white;
+        padding: 1rem;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    &__content{
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: $color-white;
+        padding: 1rem;
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    &__date{
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: $color-white;
+      
+    }
+       &__materie{
+            position: absolute;
+            top:1rem;
+            right: 1rem;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: $color-white;
+            padding: 0.5rem;
+            margin-top: 0;
+            margin-bottom: 0;
+            background-color: $color-primary;
+            border-radius: 5rem;
+            text-align: center;
+        }
+
+        &__bottom{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        &__tag{
+            font-size: 1rem;
+            font-weight: 400;
+            color: $color-white;
+            padding: 0.4rem;
+            background-color: $color-black;
+            border-radius: 1rem;
+            text-align: center;
+        }
+}
+
+

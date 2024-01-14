@@ -10,10 +10,12 @@ $color-black: #3F4E4F;
 $color-bg:rgb(23, 23, 24);
 $color-bg-card:#ebe8e8;
 $color-green:#1fd455;
-$color-red:#df4141;
+$color-red:#f02f2f;
+$color-red2:#eb8577;
 
 $linear-gradient: linear-gradient(90deg, $color-primary 0%, $color-secondary 54%);
 $linear-gradient-2: linear-gradient(150deg, $color-secondary 0%, $color-primary 54%);
+$linear-gradient-3: linear-gradient(150deg, $color-red 0%, $color-red2 54%);
 
 // FONTS 
 $font-family-primary: "Roboto", sans-serif;
