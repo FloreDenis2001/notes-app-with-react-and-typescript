@@ -241,7 +241,7 @@ button {
   margin-bottom: 1rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #3F4E4F;
+  color: #3b3a3a;
   transition: all 0.3s;
   cursor: pointer;
 }
@@ -506,7 +506,105 @@ button {
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: relative;
+  height: 100vh;
+}
+.home__gridContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  min-width: 100%;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+.home__gridContainer__notes {
+  display: flex;
+  flex-direction: column;
+  min-width: 100rem;
+  min-height: 30rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #3b3a3a;
+}
+.home__gridContainer__notes h1 {
+  font-size: 2.5rem;
+  color: #67d1bd;
+  font-weight: 400;
+  padding-block: 2rem;
+  padding-inline: 1rem;
+}
+.home__gridContainer__notes__slider {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  padding-bottom: 2rem;
+  overflow-x: scroll;
   width: 100%;
+  max-width: 100%;
+}
+.home__gridContainer__stick {
+  display: flex;
+  flex-direction: column;
+  min-width: 40rem;
+  min-height: 35rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #3b3a3a;
+  height: 100%;
+}
+.home__gridContainer__stick h1 {
+  font-size: 2.5rem;
+  color: #67d1bd;
+  font-weight: 400;
+  padding-block: 2rem;
+  padding-inline: 1rem;
+}
+.home__gridContainer__stick textarea {
+  height: 100%;
+  min-height: 20rem;
+  max-height: 100%;
+  min-width: 40rem;
+  max-width: 40rem;
+  width: 100%;
+  font-size: 1.5rem;
+  font-family: "Red Hat Display", sans-serif;
+  border-bottom: 1px solid #67d1bd;
+  background-color: transparent;
+  color: #ffffff;
+  resize: none;
+  outline: none;
+  border: none;
+}
+.home__gridContainer__top {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding-inline: 1rem;
+  gap: 10rem;
+  padding-block: 5rem;
+}
+.home__gridContainer__top h1 {
+  font-size: 2.5rem;
+  color: #67d1bd;
+  font-weight: 400;
+}
+.home__gridContainer__trash {
+  width: 100%;
+  height: 40rem;
+  background-image: url("https://images.unsplash.com/photo-1612952639810-3a4c7a25ac62?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home__gridContainer__trash h1 {
+  font-size: 6rem;
+  color: #ffffff;
+  padding-block: 2rem;
+  padding-inline: 1rem;
 }
 
 .notes {
@@ -615,7 +713,83 @@ button {
   font-weight: 400;
   color: #ffffff;
   padding: 0.4rem;
-  background-color: #3F4E4F;
+  background-color: #3b3a3a;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.noteHome {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+  position: relative;
+  min-height: 25rem;
+  min-width: 25rem;
+  border: 1px solid #67d1bd;
+  border-radius: 1rem;
+  cursor: pointer;
+  background-color: rgb(23, 23, 24);
+}
+.noteHome h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 1rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.noteHome__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 1rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.noteHome__content {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #ffffff;
+  padding: 1rem;
+  padding-top: 0;
+  margin-top: 0;
+}
+.noteHome__date {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #ffffff;
+}
+.noteHome__materie {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #ffffff;
+  padding: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: #369970;
+  border-radius: 5rem;
+  text-align: center;
+}
+.noteHome__bottom {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+.noteHome__tag {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #ffffff;
+  padding: 0.4rem;
+  background-color: #3b3a3a;
   border-radius: 1rem;
   text-align: center;
 }

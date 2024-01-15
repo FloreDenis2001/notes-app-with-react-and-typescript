@@ -4,6 +4,7 @@ import LoginContextType from "../models/LoginContextType";
 import { LoginContext } from "../context/LoginProvider";
 import NoteRequest from "../dtos/NoteRequest";
 import ServiceNotes from "../services/ServiceNotes";
+import { useNavigate } from "react-router-dom";
 
 interface NoteProps {
   note: Note;
@@ -39,6 +40,7 @@ const TrashEditor: React.FC<NoteProps> = ({ note, onUpdate, onDelete }) => {
     try {
       const noteData = await serviceNotes.restoreNote(note.id);
       onUpdate();
+   
     } catch (error) {
       console.log(error);
     }

@@ -1,10 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faFilter,
-  faNoteSticky,
-  faPlus,
-  faRemove,
   faSort,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
@@ -13,11 +9,10 @@ import NoteContainer from "./NoteContainer";
 import ServiceNotes from "../services/ServiceNotes";
 import { LoginContext } from "../context/LoginProvider";
 import LoginContextType from "../models/LoginContextType";
-import NoteEditor from "./NoteEditor";
-import NoteAdd from "./NoteAdd";
 import TrashEditor from "./TrashEditor";
+import { useNavigate } from "react-router-dom";
 
-const Notes = () => {
+const Trash : React.FC = () => {
   const [sortBy, setSortBy] = useState("title");
   const [isSortDropdownOpen, setSortDropdownOpen] = useState(false);
   const [selectedNode, setSelectedNode] = useState<Note>();
@@ -25,8 +20,6 @@ const Notes = () => {
   const [isFilterDropdownOpen, setFilterDropdownOpen] = useState(false);
   const [notes, setNotes] = useState<Note[]>([]);
   const [originalNotes, setOriginalNotes] = useState<Note[]>([]);
-  const uniqueMaterii = Array.from(new Set(originalNotes.map((note) => note.materie)));
-  const uniqueTags = Array.from(new Set(originalNotes.map((note) => note.tag)));
   let serviceNotes = new ServiceNotes();
   let { user, setUserCookie } = useContext(LoginContext) as LoginContextType;
 
@@ -86,7 +79,7 @@ const Notes = () => {
 
   const handleNoteUpdate = async () => {
     try {
-      const updatedNotesData = await serviceNotes.getAllNotesByUser(user.id);
+      const updatedNotesData = await serviceNotes.getTrashNotes(user.id);
       setNotes(updatedNotesData);
       setOriginalNotes(updatedNotesData);
     } catch (error) {
@@ -96,7 +89,7 @@ const Notes = () => {
 
   const handleNoteDelete = async (): Promise<void> => {
     try {
-      const notesData = await serviceNotes.getAllNotesByUser(user.id);
+      const notesData = await serviceNotes.getTrashNotes(user.id);
       setNotes(notesData);
       setOriginalNotes(notesData);
       setSelectedNode(undefined);
@@ -166,4 +159,4 @@ const Notes = () => {
   );
 };
 
-export default Notes;
+export default Trash;

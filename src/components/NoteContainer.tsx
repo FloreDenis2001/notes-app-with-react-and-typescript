@@ -11,12 +11,15 @@ const NoteContainer: React.FC<NoteProps> = ({ note, onClick }) => {
     onClick(note);
   };
 
+  const dateString = note.createdAt;
+  const extractedDate = dateString.split('T')[0];
+
   return (
     <div className="note" key={note.id} onClick={handleNoteClick}>
       <div className="note__title">{note.title}</div>
       <div className="note__content">{note.notite}</div>
       <div className="note__bottom">
-        <div className="note__date">{note.createdAt}</div>
+        <div className="note__date">{extractedDate}</div>
         <div className="note__tag">{note.tag}</div>
       </div>
       <div className="note__materie">{note.materie}</div>

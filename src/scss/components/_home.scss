@@ -1,6 +1,117 @@
-.home{
+.home {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+    height: 100vh;
+
+  &__gridContainer {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
+    flex-direction: column-reverse;
+    min-width: 100%;
+    min-height: 100vh;
+    justify-content: space-between;
+
+    &__notes {
+      display: flex;
+      flex-direction: column;
+      min-width: 100rem;
+      min-height: 30rem;
+      padding: 1rem;
+      border-radius: 1rem;
+      background-color: $color-black;
+      h1 {
+        font-size: 2.5rem;
+        color: $color-secondary;
+        font-weight: 400;
+        padding-block: 2rem;
+        padding-inline: 1rem;
+      }
+
+      &__slider {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 1rem;
+        padding-bottom: 2rem;
+        overflow-x: scroll;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    &__stick {
+      display: flex;
+      flex-direction: column;
+      min-width: 40rem;
+      min-height: 35rem;
+      padding: 1rem;
+      border-radius: 1rem;
+        background-color: $color-black;
+
+      h1 {
+        font-size: 2.5rem;
+        color: $color-secondary;
+        font-weight: 400;
+        padding-block: 2rem;
+        padding-inline: 1rem;
+      }
+      height: 100%;
+
+      textarea {
+        height: 100%;
+        min-height: 20rem;
+        max-height: 100%;
+        min-width: 40rem;
+        max-width: 40rem;
+        width: 100%;
+        font-size: 1.5rem;
+        font-family: $font-family-secondary;
+        border-bottom: 1px solid $color-secondary;
+        background-color: transparent;
+        color: $color-white;
+        resize: none;
+        outline: none;
+        border: none;
+      }
+    }
+
+    &__top {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      padding-inline: 1rem;
+      gap: 10rem;
+      padding-block: 5rem;
+
+      h1 {
+        font-size: 2.5rem;
+        color: $color-secondary;
+        font-weight: 400;
+      }
+    }
+
+    &__trash {
+     
+        width: 100%;
+        height: 40rem;
+        background-image: url('https://images.unsplash.com/photo-1612952639810-3a4c7a25ac62?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h1{
+            font-size: 6rem;
+            color: $color-white;
+            padding-block: 2rem;
+            padding-inline: 1rem;
+
+        }
+
+    }
+  }
 }

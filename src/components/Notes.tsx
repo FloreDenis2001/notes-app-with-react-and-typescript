@@ -13,11 +13,11 @@ import { LoginContext } from "../context/LoginProvider";
 import LoginContextType from "../models/LoginContextType";
 import NoteEditor from "./NoteEditor";
 import NoteAdd from "./NoteAdd";
+import { useLocation } from "react-router-dom";
 
 const Notes = () => {
   const [sortBy, setSortBy] = useState("title");
   const [isSortDropdownOpen, setSortDropdownOpen] = useState(false);
-  const [selectedNode, setSelectedNode] = useState<Note>();
   const [isAddNote, setIsAddNote] = useState<boolean>(false);
   const [isFilterDropdownOpen, setFilterDropdownOpen] = useState(false);
   const [notes, setNotes] = useState<Note[]>([]);
@@ -27,13 +27,24 @@ const Notes = () => {
   let serviceNotes = new ServiceNotes();
   let { user, setUserCookie } = useContext(LoginContext) as LoginContextType;
 
+  const location = useLocation();
+  console.log(location);
+
+  const selectedNote = location.state?.selectedNote as Note;
+  const [selectedNode, setSelectedNode] = useState<Note | undefined>();
+  console.log(selectedNote);
+  
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
         if (user && user.id) {
           const notesData = await serviceNotes.getAllNotesByUser(user.id);
-          setNotes(notesData);
-          setOriginalNotes(notesData);
+          const sortedNotes = [...notesData].sort((a, b) =>
+          b.createdAt.localeCompare(a.createdAt)
+        );
+          setNotes(sortedNotes);
+          setOriginalNotes(sortedNotes);
         }
       } catch (error) {
         console.log(error);
@@ -52,6 +63,11 @@ const Notes = () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
   }, [user]);
+
+
+  useEffect(() => {
+    setSelectedNode(selectedNote);
+  }, [selectedNote]);
 
   const handleSortTitle = () => {
     const sortedNotes = [...notes].sort((a, b) => a.title.localeCompare(b.title));
@@ -115,7 +131,7 @@ const Notes = () => {
   };
 
   const handlerFilterOptionMaterie = (materie: string) => {
-    const filteredNotes = materie === "Toate" ? originalNotes : originalNotes.filter((note) => note.materie === materie);
+    const filteredNotes = materie === "Toate"  ? originalNotes : originalNotes.filter((note) => note.materie === materie);
     setNotes(filteredNotes);
     setFilterDropdownOpen(false);
   };
