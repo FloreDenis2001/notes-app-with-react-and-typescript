@@ -29,7 +29,7 @@ const Home = () => {
         userId: user.id,
       };
       const notesData = await serviceNotes.createNote(note);
-      nav(`/notes`, { state: { selectedNote: note } });
+      nav(`/note`, { state: { selectedNote: note } });
       console.log(notesData);
       
     } catch (error) {

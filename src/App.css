@@ -347,7 +347,6 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rebeccapurple;
     height: max-content;
   }
 }
@@ -376,18 +375,23 @@ button {
 @media only screen and (max-width: 75em) {
   .login__container__left {
     border-radius: 0rem;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
     width: 70%;
   }
 }
 @media only screen and (max-width: 56.25em) {
   .login__container__left {
     border-radius: 0rem;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
     width: 80%;
   }
 }
 @media only screen and (max-width: 37.5em) {
   .login__container__left {
-    border-radius: 0rem;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
     width: 100%;
   }
 }

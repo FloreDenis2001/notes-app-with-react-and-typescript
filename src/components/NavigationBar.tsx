@@ -82,6 +82,19 @@ const NavigationBar = () => {
             <FontAwesomeIcon icon={faTrash} />
           </a>
         </li>
+        <li>
+          <a
+            onClick={() => handlerNavigate("login")}
+            className={
+              activeNav === "#login"
+                ? "navigation__mobile__link navigation__active"
+                : "navigation__mobile__link"
+            }
+          >
+            {" "}
+            <FontAwesomeIcon icon={faUser} />
+          </a>
+        </li>
       </ul>
     </aside>
   );

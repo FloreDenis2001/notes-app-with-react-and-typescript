@@ -68,7 +68,7 @@ const Login: React.FC = () => {
           />
           {errors.password && <span>This field password is required</span>}
           <button className="button__second" type="submit">
-            Login In
+            Log In
           </button>
         </form>
       </div>

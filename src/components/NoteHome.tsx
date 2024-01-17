@@ -34,7 +34,7 @@ const NoteHome: React.FC<NoteProps> = ({ note }) => {
       <div className="noteHome__bottom">
         <FontAwesomeIcon
           className="navigation__leftBar__options__item__icon"
-          icon={faEdit}  onClick={() => nav(`/notes`, { state: { selectedNote: note } })}
+          icon={faEdit}  onClick={() => nav(`/note`, { state: { selectedNote: note } })}
         />
         <FontAwesomeIcon
           className="navigation__leftBar__options__item__icon"

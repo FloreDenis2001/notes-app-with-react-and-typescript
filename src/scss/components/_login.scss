@@ -23,7 +23,6 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background-color: rebeccapurple;
       height: max-content;
     }
 
@@ -50,14 +49,19 @@
 
       @include respond(tab-land){
         border-radius: 0rem;
+        border-top-right-radius: 1rem;
+        border-top-left-radius:1rem;
         width: 70%;
       }
       @include respond(tab-port){
         border-radius: 0rem;
+        border-top-right-radius: 1rem;
+        border-top-left-radius: 1rem;
         width: 80%;
       }
       @include respond(phone){
-        border-radius: 0rem;
+        border-top-right-radius: 1rem;
+        border-top-left-radius: 1rem;
         width: 100%;
       }
 
