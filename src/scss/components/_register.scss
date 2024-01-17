@@ -2,7 +2,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 100vh;
+    background:$linear-gradient-2;
+    
+    h1{
+      font-size: 2.5rem;
+      color: $color-primary;
+      font-weight: 500;
+    }
   
     &__container {
       display: flex;
@@ -10,6 +17,17 @@
       align-items: center;
       width: 60%;
       padding: 2rem;
+      background: $color-bg;
+
+      max-width: 60rem;
+
+      @include respond(tab-land){
+        width: 80%;
+      }
+
+      @include respond(tab-port){
+        width: 100%;
+      }
   
       &__form {
         display: flex;
@@ -24,17 +42,18 @@
   
           label {
             font-size: 2rem;
-            color: $color-primary;
+            color: $color-white;
             margin-bottom: 0.5rem;
           }
   
           input {
             height: 4rem;
             padding: 0.5rem;
-            border: 1px solid $color-secondary;
+            border: 1px solid $color-primary;
             border-radius: 4px;
             font-size: 1.6rem;
-            color: $color-secondary;
+            color: $color-white;
+            background: $color-bg;
   
             &:focus {
               outline: none;

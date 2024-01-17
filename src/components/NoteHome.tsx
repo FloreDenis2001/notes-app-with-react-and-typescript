@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Note from "../models/Note";
 import { faEdit, faRemove } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ServiceNotes from "../services/ServiceNotes";
 import { useNavigate } from "react-router-dom";
+import LoginContextType from "../models/LoginContextType";
+import { LoginContext } from "../context/LoginProvider";
+import TrashRequest from "../dtos/TrashRequest";
 
 interface NoteProps {
   note: Note;
@@ -11,10 +14,11 @@ interface NoteProps {
 
 const NoteHome: React.FC<NoteProps> = ({ note }) => {
   const serviceNotes = new ServiceNotes();
+  let { user, setUserCookie } = useContext(LoginContext) as LoginContextType;
   let nav = useNavigate();
   const handlerMoveToTrash = async (): Promise<void> => {
     try {
-      await serviceNotes.moveNoteToTrash(note.id);
+      await serviceNotes.moveNoteToTrash({userId: user.id, noteId: note.id}as TrashRequest);
       nav("/trash");
     } catch (error) {
       console.log(error);

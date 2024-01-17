@@ -2,8 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import Note from "../models/Note";
 import LoginContextType from "../models/LoginContextType";
 import { LoginContext } from "../context/LoginProvider";
-import NoteRequest from "../dtos/NoteRequest";
 import ServiceNotes from "../services/ServiceNotes";
+import UpdateNoteRequest from "../dtos/UpdateNoteRequest";
+import TrashRequest from "../dtos/TrashRequest";
 
 interface NoteProps {
   note: Note;
@@ -14,17 +15,34 @@ interface NoteProps {
 const NoteEditor: React.FC<NoteProps> = ({ note, onUpdate, onDelete }) => {
   const { user } = useContext(LoginContext) as LoginContextType;
   const serviceNotes = new ServiceNotes();
+  const [isOwner, setIsOwner] = useState<boolean>(false);
 
-  const [noteUpdated, setNoteUpdated] = useState<NoteRequest>({
+  const handlerOwner = async (): Promise<void> => {
+    try {
+      let response = await serviceNotes.getVerifyNote(note.id);
+      console.log(response);
+      if (response.id === user.id) {
+        setIsOwner(true);
+      }else {
+        setIsOwner(false);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const [noteUpdated, setNoteUpdated] = useState<UpdateNoteRequest>({
     title: note.title || "",
     materie: note.materie || "",
     tag: note.tag || "",
     notite: note.notite || "",
     isTrash: note.isTrash || false,
     userId: user.id || 0,
+    noteId: note.id || 0,
   });
 
   useEffect(() => {
+    handlerOwner();
     setNoteUpdated({
       title: note.title || "",
       materie: note.materie || "",
@@ -32,12 +50,13 @@ const NoteEditor: React.FC<NoteProps> = ({ note, onUpdate, onDelete }) => {
       notite: note.notite || "",
       isTrash: note.isTrash || false,
       userId: user.id || 0,
+      noteId: note.id || 0,
     });
   }, [note, user.id]);
 
   const handlerUpdateNote = async (): Promise<void> => {
     try {
-      const noteData = await serviceNotes.updateNote(note.id, noteUpdated);
+      const noteData = await serviceNotes.updateNote(noteUpdated);
       onUpdate();
     } catch (error) {
       console.log(error);
@@ -46,7 +65,10 @@ const NoteEditor: React.FC<NoteProps> = ({ note, onUpdate, onDelete }) => {
 
   const handlerDeleteNote = async (): Promise<void> => {
     try {
-      await serviceNotes.moveNoteToTrash(note.id);
+      await serviceNotes.moveNoteToTrash({
+        userId: user.id,
+        noteId: note.id,
+      } as TrashRequest);
       onDelete();
     } catch (error) {
       console.log(error);
@@ -103,13 +125,16 @@ const NoteEditor: React.FC<NoteProps> = ({ note, onUpdate, onDelete }) => {
           >
             UPDATE
           </button>
-          <button
-            className="button__delete"
-            type="button"
-            onClick={() => handlerDeleteNote()}
-          >
-            DELETE
-          </button>
+
+          {isOwner && (
+            <button
+              className="button__delete"
+              type="button"
+              onClick={() => handlerDeleteNote()}
+            >
+              DELETE
+            </button>
+          )}
         </div>
       </form>
     </div>

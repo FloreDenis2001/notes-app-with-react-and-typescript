@@ -72,6 +72,16 @@ const Login: React.FC = () => {
           </button>
         </form>
       </div>
+
+      <div className="login__container__right">
+        <h2 className="login__container__right__title">New Here ?</h2>
+        <p className="login__container__right__text">
+          Sing up and discover a greate ammount of new opportunities
+        </p>
+        <button className="button__signUp" onClick={()=>handleGoToRegister()}>
+          Sign up
+        </button>
+      </div>
       </div>
     </div>
   );

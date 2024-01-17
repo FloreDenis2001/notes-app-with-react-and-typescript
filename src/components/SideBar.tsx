@@ -1,16 +1,10 @@
 import React, { useContext } from "react";
 import {
-  faComputerMouse,
-  faGamepad,
   faHome,
   faMagnifyingGlass,
-  faMicrochip,
-  faMobileScreenButton,
   faNoteSticky,
-  faPerson,
   faShare,
   faTrash,
-  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { LoginContext } from "../context/LoginProvider";
@@ -80,7 +74,7 @@ const SideBar: React.FC = () => {
 
           <li
             className="navigation__leftBar__options__item"
-            onClick={() => handleNavProfile("/notes")}
+            onClick={() => handleNavProfile("/note")}
           >
             <a href="#">
               <FontAwesomeIcon
@@ -94,7 +88,7 @@ const SideBar: React.FC = () => {
           </li>
           <li
             className="navigation__leftBar__options__item"
-            onClick={() => handleNavProfile("/shared")}
+            onClick={() => handleNavProfile("/share")}
           >
             <a href="#">
               <FontAwesomeIcon

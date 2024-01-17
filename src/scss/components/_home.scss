@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   position: relative;
-    height: 100vh;
-
+min-height: 100vh;
   &__gridContainer {
     display: flex;
     flex-direction: column-reverse;
@@ -12,20 +12,37 @@
     min-height: 100vh;
     justify-content: space-between;
 
+    
+
     &__notes {
       display: flex;
       flex-direction: column;
-      min-width: 100rem;
+      min-width: 80rem;
       min-height: 30rem;
       padding: 1rem;
       border-radius: 1rem;
       background-color: $color-black;
+
+      @include respond(tab-land) {
+        min-width: 60rem;
+      }
+
+      @include respond(tab-port) {
+        min-width: 40rem;
+      }
+
+      @include respond(phone) {
+
+        min-width: 100%;
+      }
       h1 {
         font-size: 2.5rem;
         color: $color-secondary;
         font-weight: 400;
         padding-block: 2rem;
         padding-inline: 1rem;
+
+       
       }
 
       &__slider {
@@ -37,6 +54,11 @@
         overflow-x: scroll;
         width: 100%;
         max-width: 100%;
+
+        @include respond(phone){
+          min-width: 100%;
+          flex-direction: column;
+      }
       }
     }
 
@@ -78,17 +100,23 @@
 
     &__top {
       display: flex;
-      flex-direction: row;
-      align-items: flex-start;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
       padding-inline: 1rem;
-      gap: 10rem;
+      gap: 5rem;
       padding-block: 5rem;
+
+      @include respond(big-desktop) {
+        display: flex;
+        flex-direction: row;
+      }
 
       h1 {
         font-size: 2.5rem;
         color: $color-secondary;
         font-weight: 400;
+        
       }
     }
 
@@ -109,6 +137,10 @@
             color: $color-white;
             padding-block: 2rem;
             padding-inline: 1rem;
+
+            @include respond(phone){
+              text-align: center;
+           }
 
         }
 

@@ -9,6 +9,8 @@ import Notes from "./components/Notes";
 import SharedNotes from "./components/SharedNotes";
 import Trash from "./components/Trash";
 import SideBar from "./components/SideBar";
+import Register from "./components/Register";
+import NavigationBar from "./components/NavigationBar";
 
 function App() {
   return (
@@ -16,11 +18,13 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <SideBar />
+          <NavigationBar/>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/notes" element={<Notes />} />
-            <Route path="/shared" element={<SharedNotes />} />
+            <Route path="/note" element={<Notes />} />
+            <Route path="/share" element={<SharedNotes />} />
             <Route path="/trash" element={<Trash />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
           </Routes>
         </BrowserRouter>

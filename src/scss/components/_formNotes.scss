@@ -3,6 +3,10 @@
   flex-direction: column;
   padding-inline: 2rem;
 
+  @include respond(phone) {
+    padding-inline: 0.5rem;
+  }
+
   &__buttonsContainer {
     display: flex;
     flex-direction: row-reverse;
@@ -51,6 +55,10 @@
       gap: 2rem;
       min-width: 100%;
 
+      @include respond(phone) {
+        margin-right: 2rem;
+      }
+
       &__input {
         height: 4rem;
         padding-left: 1rem;
@@ -65,19 +73,81 @@
         &:focus {
           outline: none;
         }
+
+        @include respond(phone) {
+          width: 80%;
+        }
       }
 
-      textarea{
+      textarea {
         max-width: 100%;
         min-width: 100%;
         min-height: 60rem;
         max-height: 60rem;
+        @include respond(phone) {
+          max-width: 80%;
+        }
       }
 
-      button{
+      button {
         width: 15rem;
         align-self: flex-end;
       }
     }
+  }
+}
+
+.sharedNotes {
+  display: flex;
+  flex-direction: row;
+  padding-left: 3rem;
+  min-width: 25rem;
+
+  @include respond(tab-port) {
+    padding-left: 0rem;
+  }
+
+ 
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: $color-white;
+      padding: 1rem;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    input {
+      height: 4rem;
+      padding-left: 1rem;
+      font-size: 2rem;
+      font-family: $font-family-secondary;
+      border: 1px solid $color-secondary;
+      background-color: transparent;
+      color: $color-white;
+      border-radius: 1rem;
+      &::placeholder {
+        color: $color-white;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__boxInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
   }
 }

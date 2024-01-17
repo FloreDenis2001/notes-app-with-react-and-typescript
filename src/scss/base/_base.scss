@@ -32,7 +32,11 @@ body {
     font-weight: 400;
     overflow-x: hidden;
     height: auto;
-    margin-left: 13%;
+    margin-left: 20rem;
+
+    @include respond(tab-port) {
+        margin-left: 0;
+    }
 }
 
 img {

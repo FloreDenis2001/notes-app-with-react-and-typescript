@@ -1,6 +1,12 @@
 .notes{
     display: flex;
     flex-direction: row;
+    padding-left: 3rem;
+
+   @include respond(tab-port){
+    padding-left: 0rem;
+   
+   }
     &__content{
         display: flex;
         flex-direction: column;
@@ -9,6 +15,10 @@
         height: 100%;
         min-height: 100vh;
         border-right: 1px solid $color-primary;
+
+        @include respond(phone){
+            min-width: 20rem;
+        }
         &__header{
             padding-top: 1rem;
             display: flex;
@@ -65,6 +75,26 @@
     position: relative;
     border-bottom: 1px solid $color-primary;
     cursor: pointer;
+
+   
+
+    &__owner{
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: $color-white;
+        padding: 0.5rem;
+        background-color: $color-red2;
+        border-radius: 2rem;
+
+        &__shared{
+        background-color: $color-secondary;
+
+        }
+
+    }
 
     &__title{
         font-size:2rem;
@@ -137,6 +167,8 @@
     border-radius: 1rem;
     cursor: pointer;
     background-color: $color-bg;
+
+  
 
 
     h1{

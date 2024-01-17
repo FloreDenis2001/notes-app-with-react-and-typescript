@@ -1,7 +1,8 @@
 .sidebar {
   min-height: 100vh;
   max-height: 100vh;
-  min-width: 13%;
+  width: 25%;
+  max-width: 23rem;
   border-right: 1px solid $color-primary;
   position: fixed;
   top: 0;
@@ -10,6 +11,9 @@
   background: $color-bg;
   display: flex;
   flex-direction: column;
+  @include respond(tab-port) {
+    display: none;
+  }
 
   &__user {
     height: 5rem;
@@ -94,4 +98,75 @@
       }
     }
   }
+}
+
+.navigation {
+ 
+
+  &__mobile {
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    width: 100%;
+    max-width: 40rem;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    z-index: 100;
+    height: 6rem;
+
+    background-color: transparent;
+
+
+    @include respond(tab-port) {
+      display: flex;
+    }
+
+    &__list {
+      width: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      list-style: none;
+      border: 2px solid $color-primary;
+      border-radius: 10rem;
+      background-color: $color-black;
+      margin-bottom: 2rem;
+      min-height: 6rem;
+
+      li{
+        color: $color-white;
+        font-size: 2rem;
+        text-decoration: none;
+        border-radius: 50%;
+  
+  
+    
+      }
+
+      a {
+        color: $color-white;
+        font-size: 2rem;
+        text-decoration: none;
+        border-radius: 50%;
+
+
+        &:hover{
+          color: $color-primary;
+        }
+     
+      }
+
+    
+    }
+
+ 
+
+  }
+}
+
+a.navigation__active{
+  color: $color-primary;
 }

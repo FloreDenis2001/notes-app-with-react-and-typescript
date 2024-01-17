@@ -27,7 +27,7 @@ const Trash : React.FC = () => {
     const fetchData = async () => {
       try {
         if (user && user.id) {
-          const notesData = await serviceNotes.getTrashNotes(user.id);
+          const notesData = await serviceNotes.getTrashNotesByUser(user.id);
           setNotes(notesData);
           setOriginalNotes(notesData);
         }
@@ -79,7 +79,7 @@ const Trash : React.FC = () => {
 
   const handleNoteUpdate = async () => {
     try {
-      const updatedNotesData = await serviceNotes.getTrashNotes(user.id);
+      const updatedNotesData = await serviceNotes.getTrashNotesByUser(user.id);
       setNotes(updatedNotesData);
       setOriginalNotes(updatedNotesData);
     } catch (error) {
@@ -89,7 +89,7 @@ const Trash : React.FC = () => {
 
   const handleNoteDelete = async (): Promise<void> => {
     try {
-      const notesData = await serviceNotes.getTrashNotes(user.id);
+      const notesData = await serviceNotes.getTrashNotesByUser(user.id);
       setNotes(notesData);
       setOriginalNotes(notesData);
       setSelectedNode(undefined);
